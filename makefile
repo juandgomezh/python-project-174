@@ -1,10 +1,10 @@
 install:
-    poetry install
+	poetry install
 
 lint:
-    poetry run ruff check .
+	poetry run ruff check .
 
 build:
-    poetry build
+	poetry build
 
 .PHONY: install lint build
