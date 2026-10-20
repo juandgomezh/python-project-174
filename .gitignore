@@ -1,0 +1,14 @@
+# archvos de Python y cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Cache de herramientas
+.ruff_cache/
+.qlty/
+
+# archivos del sistema operativo de desarrollo
+.DS_Store
+
+# archivos del editor de código
+.vscode/

@@ -2,10 +2,7 @@
 
 [![hexlet-check](https://github.com/juandgomezh/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/juandgomezh/python-project-174/actions)
 
-En este proyecto vas a trabajar con colecciones y estructuras en árbol. Aprenderás a leer y generar archivos JSON y YAML, escribirás pruebas con pytest y empezarás a programar usando TDD. Además, conocerás herramientas como la integración continua (CI) y te acercarás a prácticas modernas como la programación extrema (XP).
-
-Proyecto de aprendizaje de Códica: https://app.codica.la/programs/python
-Así debería funcionar: https://asciinema.org/a/Pe6QypnLEmFWssNAjCOJN1iii
+En este proyecto se evidencia el uso de estructuras de datos, como listas, conjuntos y diccionarios, para la manipulación de información extraída de archivos JSON. Asimismo, mediante el uso de estructuras condicionales, se realiza la comparación de los elementos, lo que permite analizar y procesar los datos de manera eficiente.
 
 ## Stack
 
@@ -29,10 +26,6 @@ cd python-project-174
 <details>
 <summary>Pruebas automáticas de Códica</summary>
 
-Las pruebas se ejecutan en cada commit. El archivo `.github/workflows/hexlet-check.yml` es el responsable de ejecutarlas: no lo elimine ni lo renombre, y no cambie el nombre del repositorio.
+Las pruebas...
 
 </details>
-
-## Acerca de Códica
-
-[Códica](https://app.codica.la/) es una escuela de programación: programas de aprendizaje propios con práctica, apoyo de mentores y proyectos reales que quedan en su currículum. Este repositorio es uno de esos proyectos.
