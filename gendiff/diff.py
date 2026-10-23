@@ -1,5 +1,6 @@
 from gendiff.parser import load_json
 
+
 def format_value(value):
     if value is None:
         return "null"
