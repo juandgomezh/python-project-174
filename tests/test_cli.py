@@ -19,5 +19,5 @@ def test_cli_muestra_diferencias(monkeypatch, capsys):
     
 def test_cli_sin_argumentos(monkeypatch):
     monkeypatch.setattr(sys, "argv", ["gendiff"])
-    with pytest.raises(SystemExit):
+    with pytest.raises(SystemExit) as excepcion:
         main()
