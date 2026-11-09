@@ -15,9 +15,18 @@ def test_verificar_diferencias_json():
 
     assert generate_diff(str(file1), str(file2)) == expected
     
+
 def test_verificar_archivo_inexistente():
     inexistente = FIXTURES / "no_existe.json"
     file2 = FIXTURES / "file2.json"
 
     with pytest.raises(FileNotFoundError):
         generate_diff(str(inexistente), str(file2))
+        
+
+def test_verificar_valor_null():
+    archivo1 = FIXTURES / "null_1.json"
+    archivo2 = FIXTURES / "null_2.json"
+    esperado = (FIXTURES / "expected_null.txt").read_text().rstrip("\n")
+
+    assert generate_diff(str(archivo1), str(archivo2)) == esperado
