@@ -1,8 +1,6 @@
 import sys
 from pathlib import Path
 
-import pytest
-
 from gendiff.scripts.gendiff import main
 
 FIXTURES = Path(__file__).parent / "fixtures"
