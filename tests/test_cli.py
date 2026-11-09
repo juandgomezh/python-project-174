@@ -21,3 +21,4 @@ def test_cli_sin_argumentos(monkeypatch):
     monkeypatch.setattr(sys, "argv", ["gendiff"])
     with pytest.raises(SystemExit) as excepcion:
         main()
+    assert excepcion.value.code == 2
