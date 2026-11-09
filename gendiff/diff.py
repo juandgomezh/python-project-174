@@ -29,7 +29,7 @@ def generate_diff(file_path1: str, file_path2: str) -> str:
             lst_diff.append(f"  - {key}: {tmp}")
         elif key not in data1 and key in data2:
             tmp = format_value(value2)
-            lst_diff.append(f"  + {key}: {tmp}")
+            lst_diff.append(f"  - {key}: {tmp}")
         elif key in data1 and key in data2:
             if value1 != value2:
                 tmp1 = format_value(value1)
