@@ -1,6 +1,8 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 from gendiff.scripts.gendiff import main
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -14,3 +16,8 @@ def test_cli_muestra_diferencias(monkeypatch, capsys):
     main()
     captura= capsys.readouterr()
     assert captura.out.rstrip("\n") == esperado
+    
+def test_cli_sin_argumentos(monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["gendiff"])
+    with pytest.raises(SystemExit):
+        main()
