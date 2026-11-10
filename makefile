@@ -7,4 +7,7 @@ lint:
 build:
 	poetry build
 
-.PHONY: install lint build
+test:
+    poetry run pytest --cov=gendiff --cov-report=term-missing
+
+.PHONY: install lint test build
