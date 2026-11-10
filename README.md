@@ -4,9 +4,9 @@
 
 ## 📌 Descripción del proyecto
 
-La calculadora de diferencias (`gendiff`) es una herramienta de línea de comandos y una librería de Python que compara dos archivos de configuración y muestra qué claves se agregaron, se eliminaron o cambiaron.
+La calculadora de diferencias (`gendiff`) es una herramienta de línea de comandos y una librería de Python que compara dos archivos de texto y muestra qué claves se agregaron, se eliminaron o cambiaron.
 
-Por ahora trabaja con archivos JSON planos. Las claves se muestran ordenadas alfabéticamente y cada línea lleva una marca que indica qué ocurrió con ella.
+Acepta archivos JSON planos y las claves se muestran ordenadas alfabéticamente, donde cada línea lleva una marca que indica qué ocurrió con ella.
 
 Acerca del diseño…
 
@@ -14,7 +14,7 @@ El proyecto separa la lectura de archivos (`gendiff/parser.py`), la lógica de c
 
 La finalidad...
 
-El objetivo es practicar estructuras de datos (diccionarios, conjuntos y listas), lectura de archivos, empaquetado con Poetry, pruebas con pytest y automatización con GitHub Actions.
+El objetivo es practicar y utilizar las estructuras de datos (diccionarios, conjuntos y listas), lectura de archivos, empaquetado con Poetry, pruebas con pytest y automatización con GitHub Actions.
 
 ---
 
@@ -123,6 +123,6 @@ poetry run pytest --cov=gendiff --cov-report=term-missing
 <details>
 <summary>Pruebas automáticas de Códica</summary>
 
-Las pruebas...
+En este proyecto se ponen en práctica la escritura de pruebas mediante archivos de ejemplo "fixtures" verificando un determinado resultado y se controlan algunos tipos de errores con el apoyo de pytest
 
 </details>
