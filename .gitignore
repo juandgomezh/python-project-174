@@ -12,3 +12,7 @@ __pycache__/
 
 # archivos del editor de código
 .vscode/
+
+# cache y tests
+.pytest_cache/
+.coverage
