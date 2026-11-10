@@ -8,6 +8,6 @@ build:
 	poetry build
 
 test:
-    poetry run pytest --cov=gendiff --cov-report=term-missing
+	poetry run pytest --cov=gendiff --cov-report=term-missing
 
 .PHONY: install lint test build
