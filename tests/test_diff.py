@@ -15,6 +15,13 @@ def test_verificar_diferencias_json():
 
     assert generate_diff(str(file1), str(file2)) == expected
     
+def test_verificar_diferencias_yaml():
+    file1 = FIXTURES / "file1.yml"
+    file2 = FIXTURES / "file2.yml"
+    expected = (FIXTURES / "expected_flat.txt").read_text().rstrip("\n")
+
+    assert generate_diff(str(file1), str(file2)) == expected
+    
 
 def test_verificar_archivo_inexistente():
     inexistente = FIXTURES / "no_existe.json"
