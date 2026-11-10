@@ -94,7 +94,9 @@ from gendiff import generate_diff
 
 print(generate_diff("file1.json", "file2.json"))
 ```
- **Nota:** ejecuta el comando con `poetry run gendiff archivo1.json archivo2.json` o con `python -m gendiff.scripts.gendiff archivo1.json archivo2.json`. Si ejecutas `python gendiff/scripts/gendiff.py` directamente, falla con `ImportError`, porque el script se llama igual que el paquete `gendiff` y lo tapa.
+
+> **Nota:** ejecuta el comando con `poetry run gendiff archivo1.json archivo2.json` o con `python -m gendiff.scripts.gendiff archivo1.json archivo2.json`. Si ejecutas `python gendiff/scripts/gendiff.py` directamente, falla con `ImportError`, porque el script se llama igual que el paquete `gendiff` y lo tapa.
+
 ---
 
 ## Algunos videos del funcionamiento
