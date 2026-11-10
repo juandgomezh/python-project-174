@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Instalar Poetry
+        run: pipx install poetry
+
+      - name: Instalar dependencias
+        run: make install
+
+      - name: Lint
+        run: make lint
+
+      - name: Pruebas con cobertura
+        run: poetry run pytest --cov=gendiff --cov-fail-under=90
