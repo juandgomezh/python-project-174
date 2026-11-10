@@ -1,31 +1,27 @@
-# 🔍 Calculadora de diferencias
+# Calculadora de diferencias
 
 [![hexlet-check](https://github.com/juandgomezh/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/juandgomezh/python-project-174/actions)
 
-## 📌 Descripción del proyecto
+## Descripción del proyecto
 
 La calculadora de diferencias (`gendiff`) es una herramienta de línea de comandos y una librería de Python que compara dos archivos de texto y muestra qué claves se agregaron, se eliminaron o cambiaron.
 
 Acepta archivos JSON planos y las claves se muestran ordenadas alfabéticamente, donde cada línea lleva una marca que indica qué ocurrió con ella.
 
-Acerca del diseño…
-
 El proyecto separa la lectura de archivos (`gendiff/parser.py`), la lógica de comparación (`gendiff/diff.py`) y la interfaz de terminal (`gendiff/scripts/gendiff.py`), de modo que cada parte se pueda probar y ampliar por separado.
 
-La finalidad...
-
-El objetivo es practicar y utilizar las estructuras de datos (diccionarios, conjuntos y listas), lectura de archivos, empaquetado con Poetry, pruebas con pytest y automatización con GitHub Actions.
+El objetivo es practicar el uso de estructuras de datos (diccionarios, conjuntos y listas), lectura de archivos, empaquetado con Poetry, pruebas con pytest y automatización con GitHub Actions.
 
 ---
 
-## 📦 Requisitos mínimos
+## Requisitos mínimos del proyecto
 
 - Python >= 3.10
 - Poetry (gestor de dependencias y empaquetado)
 
 ---
 
-## 🚀 Instalación
+## Instalación del proyecto
 
 ```bash
 git clone https://github.com/juandgomezh/python-project-174.git
@@ -38,11 +34,12 @@ Otros comandos disponibles:
 ```bash
 make lint    # revisa el estilo con ruff
 make build   # genera el paquete en dist/
+make test    # ejecución de pruebas
 ```
 
 ---
 
-## 🧪 Uso
+## Uso del comando para comparar archivos
 
 ```bash
 poetry run gendiff file1.json file2.json
@@ -97,10 +94,10 @@ from gendiff import generate_diff
 
 print(generate_diff("file1.json", "file2.json"))
 ```
-
+ **Nota:** ejecuta el comando con `poetry run gendiff archivo1.json archivo2.json` o con `python -m gendiff.scripts.gendiff archivo1.json archivo2.json`. Si ejecutas `python gendiff/scripts/gendiff.py` directamente, falla con `ImportError`, porque el script se llama igual que el paquete `gendiff` y lo tapa.
 ---
 
-## 🎬 Demostraciones
+## Algunos videos del funcionamiento
 
 ### Ayuda del comando
 
@@ -112,7 +109,7 @@ print(generate_diff("file1.json", "file2.json"))
 
 ---
 
-## ✅ Pruebas
+## Pruebas del proyecto
 
 ```bash
 poetry run pytest --cov=gendiff --cov-report=term-missing
@@ -123,6 +120,6 @@ poetry run pytest --cov=gendiff --cov-report=term-missing
 <details>
 <summary>Pruebas automáticas de Códica</summary>
 
-En este proyecto se ponen en práctica la escritura de pruebas mediante archivos de ejemplo "fixtures" verificando un determinado resultado y se controlan algunos tipos de errores con el apoyo de pytest
+En este proyecto se practica la escritura de pruebas con pytest: archivos de ejemplo (fixtures) con el resultado esperado y verificación de errores.
 
 </details>
