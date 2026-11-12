@@ -109,6 +109,9 @@ print(generate_diff("file1.json", "file2.json"))
 
 [![Comparación de JSON planos](https://asciinema.org/a/AsrysAXwv4AkGuTQ.svg)](https://asciinema.org/a/AsrysAXwv4AkGuTQ)
 
+[![Comparación de YAML planos](https://asciinema.org/a/Ws5AGqVeVUCc3sI0)](https://asciinema.org/a/Ws5AGqVeVUCc3sI0)
+
+
 ---
 
 ## Pruebas del proyecto
