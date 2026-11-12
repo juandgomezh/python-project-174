@@ -37,3 +37,10 @@ def test_verificar_valor_null():
     esperado = (FIXTURES / "expected_null.txt").read_text().rstrip("\n")
 
     assert generate_diff(str(archivo1), str(archivo2)) == esperado
+    
+def test_verificar_formato_no_soportado():
+    archivo1 = FIXTURES / "file1.txt"
+    archivo2 = FIXTURES / "file2.json"
+
+    with pytest.raises(ValueError, match="Formato no soportado"):
+        generate_diff(str(archivo1), str(archivo2))
