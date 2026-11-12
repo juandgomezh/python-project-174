@@ -81,11 +81,11 @@ la salida es:
 }
 ```
 
-| Marca | Significado |
+| Símbolo | Significado |
 |---|---|
 | `-` | la clave estaba solo en el primer archivo, o su valor cambió |
 | `+` | la clave está solo en el segundo archivo, o es el valor nuevo |
-| (sin marca) | la clave y su valor son iguales en ambos archivos |
+| (sin simbolo) | la clave y su valor son iguales en ambos archivos |
 
 También se puede usar desde Python:
 
