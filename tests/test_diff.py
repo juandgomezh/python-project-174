@@ -52,3 +52,15 @@ def test_verificar_diferencias_anidadas(ext):
     esperado = (FIXTURES / "expected_nested.txt").read_text().rstrip("\n")
 
     assert generate_diff(str(archivo1), str(archivo2)) == esperado
+    
+def test_verificar_formato_de_salida_no_soportado():
+    a = FIXTURES / "file1.json"
+    with pytest.raises(ValueError, match="Formato de salida no soportado"):
+        generate_diff(str(a), str(a), "xml")
+
+
+def test_verificar_archivos_identicos():
+    a = FIXTURES / "file1.json"
+    resultado = generate_diff(str(a), str(a))
+    assert "+ " not in resultado and "- " not in resultado
+    assert "host: hexlet.io" in resultado
