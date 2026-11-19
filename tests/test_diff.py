@@ -44,3 +44,11 @@ def test_verificar_formato_no_soportado():
 
     with pytest.raises(ValueError, match="Formato no soportado"):
         generate_diff(str(archivo1), str(archivo2))
+
+@pytest.mark.parametrize("ext", ["json", "yml"])
+def test_verificar_diferencias_anidadas(ext):
+    archivo1 = FIXTURES / f"nested_1.{ext}"
+    archivo2 = FIXTURES / f"nested_2.{ext}"
+    esperado = (FIXTURES / "expected_nested.txt").read_text().rstrip("\n")
+
+    assert generate_diff(str(archivo1), str(archivo2)) == esperado

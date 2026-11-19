@@ -6,7 +6,7 @@
 
 La calculadora de diferencias (`gendiff`) es una herramienta de línea de comandos y una librería de Python que compara dos archivos de texto y muestra qué claves se agregaron, se eliminaron o cambiaron.
 
-Acepta archivos JSON y YAML planos (extensiones `.json`, `.yml` y `.yaml`). Las claves se muestran alfabéticamente, donde cada línea lleva un símbolo que indica qué ocurrió con ella.
+Acepta archivos JSON y YAML, planos o con estructuras anidadas, (extensiones `.json`, `.yml` y `.yaml`). Las claves se muestran alfabéticamente, donde cada línea lleva un símbolo que indica qué ocurrió con ella.
 
 El proyecto separa la lectura de archivos (`gendiff/parser.py`), la lógica de comparación (`gendiff/diff.py`) y la interfaz de terminal (`gendiff/scripts/gendiff.py`), de modo que cada parte se pueda probar y ampliar por separado.
 
@@ -86,6 +86,8 @@ la salida es:
 | `-` | la clave estaba solo en el primer archivo, o su valor cambió |
 | `+` | la clave está solo en el segundo archivo, o es el valor nuevo |
 | (sin simbolo) | la clave y su valor son iguales en ambos archivos |
+
+Cuando un valor es un diccionario, la comparación es recursiva: cada nivel se indenta 4 espacios y los diccionarios agregados o eliminados se imprimen completos.
 
 También se puede usar desde Python:
 
