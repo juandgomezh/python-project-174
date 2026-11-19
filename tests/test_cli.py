@@ -29,3 +29,10 @@ def test_cli_formato_stylish_explicito(monkeypatch, capsys):
     monkeypatch.setattr(sys, "argv", ["gendiff", "-f", "stylish", str(a), str(b)])
     main()
     assert capsys.readouterr().out.rstrip("\n") == esperado
+
+def test_cli_formato_plain(monkeypatch, capsys):
+    a, b = FIXTURES / "nested_1.json", FIXTURES / "nested_2.json"
+    esperado = (FIXTURES / "expected_plain.txt").read_text().rstrip("\n")
+    monkeypatch.setattr(sys, "argv", ["gendiff", "-f", "plain", str(a), str(b)])
+    main()
+    assert capsys.readouterr().out.rstrip("\n") == esperado

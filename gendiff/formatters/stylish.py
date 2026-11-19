@@ -16,14 +16,14 @@ def format_value(value, depth):
         return "{\n" + "\n".join(lines) + "\n" + closing + "}"
     return str(value)
 
-def render(nodes: list, depth: int = 0) -> str:
+def render_stylish(nodes: list, depth: int = 0) -> str:
     pad = " " * (depth * INDENT)
     lines = []
     for node in nodes:
         key = node["key"]
         kind = node["type"]
         if kind == "nested":
-            body = render(node["children"], depth + 1)
+            body = render_stylish(node["children"], depth + 1)
             lines.append(f"{pad}    {key}: {body}")
         elif kind == "changed":
             old = format_value(node["old"], depth + 1)

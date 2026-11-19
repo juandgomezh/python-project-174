@@ -3,6 +3,7 @@ from pathlib import Path
 import pytest
 
 from gendiff import generate_diff
+from gendiff.formatters.plain import format_value
 
 # raiz
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -58,9 +59,20 @@ def test_verificar_formato_de_salida_no_soportado():
     with pytest.raises(ValueError, match="Formato de salida no soportado"):
         generate_diff(str(a), str(a), "xml")
 
-
 def test_verificar_archivos_identicos():
     a = FIXTURES / "file1.json"
     resultado = generate_diff(str(a), str(a))
     assert "+ " not in resultado and "- " not in resultado
     assert "host: hexlet.io" in resultado
+    
+@pytest.mark.parametrize("ext", ["json", "yml"])
+def test_verificar_formato_plain(ext):
+    archivo1 = FIXTURES / f"nested_1.{ext}"
+    archivo2 = FIXTURES / f"nested_2.{ext}"
+    esperado = (FIXTURES / "expected_plain.txt").read_text().rstrip("\n")
+
+    assert generate_diff(str(archivo1), str(archivo2), "plain") == esperado
+
+
+def test_format_value_numero():
+    assert format_value(42) == "42"
