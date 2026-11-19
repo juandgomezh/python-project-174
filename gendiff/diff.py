@@ -1,5 +1,7 @@
+from gendiff.formatters.stylish import render
 from gendiff.parser import load_file
-from gendiff.formatters.stylish import render_stylish
+
+FORMATTERS = {"stylish": render}
 
 def build_diff(data1: dict, data2: dict) -> list:
     nodes = []
@@ -26,7 +28,9 @@ def build_diff(data1: dict, data2: dict) -> list:
     return nodes
 
 
-def generate_diff(file_path1: str, file_path2: str) -> str:
+def generate_diff(file_path1, file_path2, format_name="stylish"):
     data1 = load_file(file_path1)
     data2 = load_file(file_path2)
-    return render_stylish(build_diff(data1, data2))
+    if format_name not in FORMATTERS:
+        raise ValueError(f"Formato de salida no soportado: {format_name}")
+    return FORMATTERS[format_name](build_diff(data1, data2))
