@@ -1,4 +1,5 @@
 import argparse
+import sys
 
 from gendiff import generate_diff
 
@@ -17,7 +18,13 @@ def main():
     )
 
     args = parser.parse_args()
-    generated_diff = generate_diff(args.first_file, args.second_file, args.format)
+    try:
+        generated_diff = generate_diff(
+            args.first_file, args.second_file, args.format
+        )
+    except (OSError, ValueError) as error:
+        print(f"gendiff: error: {error}", file=sys.stderr)
+        sys.exit(1)
     print(generated_diff)
 
 

@@ -1,7 +1,7 @@
 [project]
 name = "hexlet-code"
 version = "0.1.0"
-description = "Proyecto relacionado con el segundo módulo"
+description = "Calculadora de diferencias: compara dos archivos JSON o YAML y muestra los cambios en formato stylish, plain o json"
 authors = [
     {name = "Juan David Gomez",email = "juandgomezh@outlook.com"}
 ]

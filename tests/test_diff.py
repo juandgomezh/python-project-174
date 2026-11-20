@@ -103,3 +103,11 @@ def test_formato_json_con_yaml_igual_que_con_json():
         str(FIXTURES / "nested_1.yml"), str(FIXTURES / "nested_2.yml"), "json"
     )
     assert json_out == yaml_out
+
+
+def test_verificar_diferencias_extension_yaml():
+    archivo1 = FIXTURES / "file1.yaml"
+    archivo2 = FIXTURES / "file2.yaml"
+    esperado = (FIXTURES / "expected_flat.txt").read_text().rstrip("\n")
+
+    assert generate_diff(str(archivo1), str(archivo2)) == esperado

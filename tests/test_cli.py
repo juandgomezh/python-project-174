@@ -50,3 +50,26 @@ def test_cli_formato_json(monkeypatch, capsys):
         "timeout": "changed",
         "verbose": "added",
     }
+
+
+def test_cli_archivo_inexistente_muestra_error_limpio(monkeypatch, capsys):
+    a = FIXTURES / "no_existe.json"
+    b = FIXTURES / "file2.json"
+    monkeypatch.setattr(sys, "argv", ["gendiff", str(a), str(b)])
+    with pytest.raises(SystemExit) as excepcion:
+        main()
+    assert excepcion.value.code == 1
+    captura = capsys.readouterr()
+    assert "no_existe.json" in captura.err
+    assert "Traceback" not in captura.err
+    assert captura.out == ""
+
+
+def test_cli_formato_de_archivo_no_soportado(monkeypatch, capsys):
+    a = FIXTURES / "file1.txt"
+    b = FIXTURES / "file2.json"
+    monkeypatch.setattr(sys, "argv", ["gendiff", str(a), str(b)])
+    with pytest.raises(SystemExit) as excepcion:
+        main()
+    assert excepcion.value.code == 1
+    assert "Formato no soportado" in capsys.readouterr().err
