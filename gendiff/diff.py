@@ -1,8 +1,9 @@
+from gendiff.formatters.json import render as render_json
 from gendiff.formatters.plain import render as render_plain
 from gendiff.formatters.stylish import render_stylish
 from gendiff.parser import load_file
 
-FORMATTERS = {"stylish": render_stylish, "plain": render_plain}
+FORMATTERS = {"stylish": render_stylish, "plain": render_plain, "json": render_json}
 
 
 def build_diff(data1: dict, data2: dict) -> list:

@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -76,3 +77,29 @@ def test_verificar_formato_plain(ext):
 
 def test_format_value_numero():
     assert format_value(42) == "42"
+
+
+def test_formato_json_es_json_valido_y_conserva_la_estructura():
+    archivo1 = FIXTURES / "nested_1.json"
+    archivo2 = FIXTURES / "nested_2.json"
+
+    resultado = json.loads(generate_diff(str(archivo1), str(archivo2), "json"))
+
+    claves = [nodo["key"] for nodo in resultado]
+    assert claves == sorted(claves)
+    por_clave = {nodo["key"]: nodo for nodo in resultado}
+    assert por_clave["common"]["type"] == "nested"
+    assert por_clave["group2"]["type"] == "deleted"
+    assert por_clave["group3"]["type"] == "added"
+    assert por_clave["group1"]["type"] == "nested"
+    assert "children" in por_clave["common"]
+
+
+def test_formato_json_con_yaml_igual_que_con_json():
+    json_out = generate_diff(
+        str(FIXTURES / "nested_1.json"), str(FIXTURES / "nested_2.json"), "json"
+    )
+    yaml_out = generate_diff(
+        str(FIXTURES / "nested_1.yml"), str(FIXTURES / "nested_2.yml"), "json"
+    )
+    assert json_out == yaml_out

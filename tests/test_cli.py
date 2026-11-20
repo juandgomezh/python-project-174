@@ -1,3 +1,4 @@
+import json
 import sys
 from pathlib import Path
 
@@ -36,3 +37,16 @@ def test_cli_formato_plain(monkeypatch, capsys):
     monkeypatch.setattr(sys, "argv", ["gendiff", "-f", "plain", str(a), str(b)])
     main()
     assert capsys.readouterr().out.rstrip("\n") == esperado
+
+def test_cli_formato_json(monkeypatch, capsys):
+    a, b = FIXTURES / "file1.json", FIXTURES / "file2.json"
+    monkeypatch.setattr(sys, "argv", ["gendiff", "--format", "json", str(a), str(b)])
+    main()
+    salida = json.loads(capsys.readouterr().out)
+    assert {n["key"]: n["type"] for n in salida} == {
+        "follow": "deleted",
+        "host": "unchanged",
+        "proxy": "deleted",
+        "timeout": "changed",
+        "verbose": "added",
+    }

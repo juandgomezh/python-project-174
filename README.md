@@ -101,6 +101,30 @@ print(generate_diff("file1.json", "file2.json"))
 
 ---
 
+## Formatos de salida
+
+La opción `-f` / `--format` elige el formato (por defecto `stylish`):
+
+```bash
+poetry run gendiff -f plain file1.json file2.json
+poetry run gendiff -f json file1.json file2.json
+```
+
+- `stylish`: el formato con `+` y `-` descrito arriba.
+- `plain`: una línea por cambio, con la ruta completa de la propiedad.
+- `json`: el árbol de diferencias como JSON. Cada nodo tiene `key` y `type` (`added`, `deleted`, `changed`, `unchanged` o `nested`), más `value`, `old`/`new` o `children` según el tipo.
+
+```text
+Property 'follow' was removed
+Property 'proxy' was removed
+Property 'timeout' was updated. From 50 to 20
+Property 'verbose' was added with value: true
+```
+
+Desde Python: `generate_diff("file1.json", "file2.json", "json")`.
+
+---
+
 ## Algunos videos del funcionamiento
 
 ### Ayuda del comando
