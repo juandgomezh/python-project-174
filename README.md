@@ -139,6 +139,14 @@ Desde Python: `generate_diff("file1.json", "file2.json", "json")`.
 
 [![Comparación de YAML planos](https://asciinema.org/a/Ws5AGqVeVUCc3sI0.svg)](https://asciinema.org/a/Ws5AGqVeVUCc3sI0)
 
+### Formato plain con estructuras anidadas
+
+[![Formato plain](https://asciinema.org/a/dD1ugNpCcIEjhwFA.svg)](https://asciinema.org/a/dD1ugNpCcIEjhwFA)
+
+### Formato json
+
+[![Formato json](https://asciinema.org/a/e0eA8XeUZeGkxChH.svg)](https://asciinema.org/a/e0eA8XeUZeGkxChH)
+
 
 ---
 
