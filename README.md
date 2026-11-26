@@ -4,7 +4,7 @@
 
 ## Descripción del proyecto
 
-La calculadora de diferencias (`gendiff`) es una herramienta de línea de comandos realizada el Python que compara dos archivos de texto y muestra qué claves se agregaron, eliminaron o cambiaron.
+La calculadora de diferencias (`gendiff`) es una herramienta de línea de comandos realizada en Python que compara dos archivos de texto y muestra qué claves se agregaron, eliminaron o cambiaron.
 
 Acepta archivos JSON y YAML, planos o con estructuras anidadas, (extensiones `.json`, `.yml` y `.yaml`). Las claves se muestran alfabéticamente, donde cada línea lleva un símbolo que indica qué ocurrió con ella.
 
