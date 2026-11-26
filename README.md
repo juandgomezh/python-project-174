@@ -147,6 +147,9 @@ Desde Python: `generate_diff("file1.json", "file2.json", "json")`.
 
 [![Formato json](https://asciinema.org/a/e0eA8XeUZeGkxChH.svg)](https://asciinema.org/a/e0eA8XeUZeGkxChH)
 
+### Formato stylish con estructuras anidadas
+
+[![Formato stylish anidado](https://asciinema.org/a/KLgb8cP5gNrw17C0.svg)](https://asciinema.org/a/KLgb8cP5gNrw17C0)
 
 ---
 
